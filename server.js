@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the root directory
+// Serve static files from the current directory
 app.use(express.static(path.join(__dirname)));
 
 // Route for the root
@@ -33,7 +33,7 @@ app.post('/sendMessage', async (req, res) => {
       }
     });
 
-    // Enviar la respuesta de vuelta al cliente
+    // Send the response back to the client
     res.json(response.data);
   } catch (error) {
     console.error('Error sending message:', error);
