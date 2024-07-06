@@ -41,6 +41,11 @@ app.post('/sendMessage', async (req, res) => {
   }
 });
 
+// Catch-all route to serve the index.html file for any other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
